@@ -42,7 +42,7 @@ include_once 'connection.php';
 		if(!empty($email) && !empty($password)){	
 			
 			$encrypted_password = md5($password);
-			if(mysqli_num_rows($user-> does_user_exist($email,$password))>0){
+			if(mysqli_num_rows($user-> does_user_exist($email,$encrypted_password))>0){
 				$us = $user-> get_user_byEmail($email);
 					$json['success'] = ' Welcome '.$email;
 					$json['id'] = $us['id'];
