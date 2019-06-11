@@ -15,8 +15,16 @@ include_once 'connection.php';
 
 		public function delete($id)
 		{
-			$query = "DELETE From Client WHERE id = '$id'";
-			return 1;
+			$query = "DELETE FROM `Client` WHERE id='$id'";
+			$result = mysqli_query($this -> connection, $query);
+			if($result)
+			{
+				return 1;
+			}
+			else 
+			{
+				return 0;
+			}
 
 		}
 		
